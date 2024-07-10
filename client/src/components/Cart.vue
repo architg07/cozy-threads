@@ -11,7 +11,7 @@
       </button>
     </header>
     <div v-if="cartItems.length === 0">
-      <p>Your cart is empty.</p>
+      <p class="white-text">Your cart is empty.</p>
     </div>
     <div v-else>
       <div class="cart-content">
@@ -318,5 +318,11 @@ header h1 {
 .size-6 {
   width: 24px;
   height: 24px;
+}
+
+.white-text {
+  color: white;
+  font-size: 2em;
+  margin-bottom: 20px;
 }
 </style>

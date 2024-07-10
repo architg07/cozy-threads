@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        - BACKEND_API_URL="server:5001"
+    volumes:
+      - ./client:/cozy-threads/client
+    ports:
+      - 8080:80
+    environment:
+      - BACKEND_API_URL="server:5001"
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/cozy-threads/server
+    ports:
+      - 5001:5001
+    environment:
+      - VUE_CLIENT_HOSTNAME="client:80"
